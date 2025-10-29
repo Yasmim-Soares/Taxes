@@ -1,12 +1,15 @@
 package br.com.application;
 
+import model.entities.Company;
 import model.entities.Individual;
+import model.entities.TaxPayer;
 
 import java.util.Scanner;
 
 public class Program {
     static void main() {
         Scanner sc = new Scanner(System.in);
+        TaxPayer taxPayer = new TaxPayer();
 
         System.out.println("Enter the number of tax payers: ");
         int numberPayers = sc.nextInt();
@@ -27,7 +30,19 @@ public class Program {
                 double healthExpanditures = sc.nextDouble();
 
                 Individual individual = new Individual(name, anualIncome, healthExpanditures);
+            } else if (type == 'c'){
+                System.out.println("Name: ");
+                String name = sc.next();
+                System.out.println("Anual income: ");
+                double anualIncome = sc.nextDouble();
+                System.out.println("Number of employees: ");
+                int numberOfEmloyees = sc.nextInt();
+
+                Company company = new Company(name, anualIncome, numberOfEmloyees);
             }
         }
+
+        System.out.println("TAXES PAID:");
+
     }
 }

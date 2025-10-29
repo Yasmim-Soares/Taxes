@@ -26,6 +26,5 @@ public class TaxPayer {
 
     public void setAnualIncome(Double anualIncome) {
         this.anualIncome = anualIncome;
-
     }
 }
