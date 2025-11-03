@@ -1,15 +1,18 @@
 package br.com.application;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Scanner;
 import model.entities.Company;
 import model.entities.Individual;
 import model.entities.TaxPayer;
 
-import java.util.Scanner;
-
 public class Program {
-    static void main() {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        TaxPayer taxPayer = new TaxPayer();
+        Locale.setDefault(Locale.US);
+        List<TaxPayer> list = new ArrayList<>();
 
         System.out.println("Enter the number of tax payers: ");
         int numberPayers = sc.nextInt();
@@ -29,7 +32,7 @@ public class Program {
                 System.out.println("Health expanditures: ");
                 double healthExpanditures = sc.nextDouble();
 
-                Individual individual = new Individual(name, anualIncome, healthExpanditures);
+                list.add(new Individual(name, anualIncome, healthExpanditures));
             } else if (type == 'c'){
                 System.out.println("Name: ");
                 String name = sc.next();
@@ -38,11 +41,24 @@ public class Program {
                 System.out.println("Number of employees: ");
                 int numberOfEmloyees = sc.nextInt();
 
-                Company company = new Company(name, anualIncome, numberOfEmloyees);
+                list.add(new Company(name, anualIncome, numberOfEmloyees));
             }
         }
 
+
+
+        double sum = 0.0;
         System.out.println("TAXES PAID:");
+        for (TaxPayer tp : list) {
+            double tax = tp.tax();
+            System.out.println(tp.getName() + ": $ " + String.format("%.2f", tax));
+            sum += tax;
+        }
+
+        System.out.println();
+        System.out.println("TOTAL TAXES: $ " + String.format("%.2f", sum));
+
+        sc.close();
 
     }
 }

@@ -19,12 +19,13 @@ public class Individual extends TaxPayer {
             this.healthExpanditures = healthExpanditures;
         }
 
-        public final Double tax(Double anualIncome){
+        @Override
+        public Double tax(){
             Double tax = 0.0;
-            if (anualIncome < 20000){
-                 tax = anualIncome * 0.15;
+            if (getAnualIncome() < 20000){
+                 tax = getAnualIncome() * 0.15;
             } else {
-                 tax = anualIncome * 0.25;
+                 tax = getAnualIncome() * 0.25;
             }
 
             if(getHealthExpanditures() > 0){
