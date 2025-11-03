@@ -28,12 +28,6 @@ src/
 </span>
 <span>
     <img width="80" src="https://img.shields.io/badge/-IntelliJ-333333?style=flat&logo=intellij-idea&logoColor=white"/>
-</span>
-
----
-
-## 🚧 Project Status  
-
-✍️ **Status:** *On-going project* – improvements and refinements are still being developed.  
+</span>  
 
 
